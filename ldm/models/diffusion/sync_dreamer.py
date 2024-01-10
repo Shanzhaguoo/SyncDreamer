@@ -283,6 +283,7 @@ class SyncMultiviewDiffusion(pl.LightningModule):
         azs = (azs + np.pi) % (np.pi * 2) - np.pi # scale to [-pi,pi] and the index=0 has az=0
         self.register_buffer('azimuth', torch.from_numpy(azs.astype(np.float32)))
 
+    #描述图像在不同视点下的相对位置和方向的嵌入
     def get_viewpoint_embedding(self, batch_size, elevation_ref):
         """
         @param batch_size:
